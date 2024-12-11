@@ -116,19 +116,19 @@ class CalculatorApp:
         self.entry_z = tk.Entry(self.tab1)
         self.entry_z.grid(row=3, column=1)
 
-        self.label_accuracy = tk.Label(self.tab1, text="Accuracy:")
+        self.label_accuracy = tk.Label(self.tab1, text="Точность:")
         self.label_accuracy.grid(row=4, column=0)
         self.entry_accuracy = tk.Entry(self.tab1)
         self.entry_accuracy.grid(row=4, column=1)
         self.entry_accuracy.insert(0, "5")
 
-        self.result_label = tk.Label(self.tab1, text="Result:")
+        self.result_label = tk.Label(self.tab1, text="Результат:")
         self.result_label.grid(row=5, column=0)
 
         self.result_display = tk.Label(self.tab1, text="")
         self.result_display.grid(row=5, column=1)
 
-        self.calculate_button = tk.Button(self.tab1, text="Calculate", command=self.calculate_linear_algorithm)
+        self.calculate_button = tk.Button(self.tab1, text="Рассчитать", command=self.calculate_linear_algorithm)
         self.calculate_button.grid(row=6, columnspan=2)
 
     def create_piecewise_function_widgets(self):
@@ -155,13 +155,13 @@ class CalculatorApp:
         self.func_combobox.grid(row=3, column=1)
         self.func_combobox.set("cot")   
 
-        self.result_label2 = tk.Label(self.tab2, text="Result:")
+        self.result_label2 = tk.Label(self.tab2, text="Результат:")
         self.result_label2.grid(row=4, column=0)
 
         self.result_display2 = tk.Label(self.tab2, text="")
         self.result_display2.grid(row=4, column=1)
 
-        self.calculate_button2 = tk.Button(self.tab2, text="Calculate", command=self.calculate_piecewise_function)
+        self.calculate_button2 = tk.Button(self.tab2, text="Рассчитать", command=self.calculate_piecewise_function)
         self.calculate_button2.grid(row=5, columnspan=2)
 
     def calculate_linear_algorithm(self):
@@ -177,7 +177,7 @@ class CalculatorApp:
             result = linear_algorithm(x, y, z, accuracy)
             self.result_display.config(text=f"{result:.5f}")
         except ValueError:
-            self.result_display.config(text="Invalid input")
+            self.result_display.config(text="Неверный ввод")
 
     def calculate_piecewise_function(self):
         """
@@ -200,7 +200,7 @@ class CalculatorApp:
             result = branching_algorithm(x, y, f_func)
             self.result_display2.config(text=f"{result:.5f}")
         except ValueError:
-            self.result_display2.config(text="Invalid input")
+            self.result_display2.config(text="Неверный ввод")
 
 if __name__ == "__main__":
     root = tk.Tk()
